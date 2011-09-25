@@ -4,11 +4,11 @@ This micro-library provides Java extensions to the [Hamcrest](http://code.google
 
 Installation
 ============
-1. Download a binary package from [here](http://code.google.com/p/hamsandwich/downloads/list). The Zip distribution contains all of the Javadoc, dependencies and source code for the project.
+* Download a binary package from [here](http://code.google.com/p/hamsandwich/downloads/list). The Zip distribution contains all of the Javadoc, dependencies and source code for the project.
 
 or:
 
-2. Check out the source code via git: `git clone git@github.com:wcmatthysen/hamsandwich.git` and build it manually. Prerequisites:
+* Check out the source code via git: `git clone git@github.com:wcmatthysen/hamsandwich.git` and build it manually. Prerequisites:
     * Java 1.6
     * Ant (we use v1.8) or Maven 2/3.
     * JUnit no dependencies version: junit-dep-*version*.jar - (we use v4.8.1)
@@ -18,6 +18,7 @@ or:
 Maven
 -----
 To use hamsandwich with Maven 2/3, you must add the following repository to your project's `pom.xml` file:
+
 ```xml
 <repository>
   <id>hamsandwich-repo</id>
@@ -123,9 +124,9 @@ Alternatively...
 ----------------
 Using a HamSandwich Matcher you can extract and group the common assertions, providing reuse in a Functional Style without hampering readability. To do so:
 
-1. Decide on the common conditions that you want to assert on. These are typically fields, but you can build up less granular, more complex Matchers by composition. In the above example, we will use the name and age fields of the Person class.
+* Decide on the common conditions that you want to assert on. These are typically fields, but you can build up less granular, more complex Matchers by composition. In the above example, we will use the name and age fields of the Person class.
 
-2. Declare a factory method for each condition annotated with @HamSandwichFactory which will return a subclass of the AdaptingMatcher. This class requires the get() method to be implemented, which describes how to translate the input object (Person), into the output object (name -> String, age -> Integer). Alternatively, you can use a factory method to create a function replaying matcher (as done below for getName()). In this example we have grouped these methods onto a single utility class:
+* Declare a factory method for each condition annotated with @HamSandwichFactory which will return a subclass of the AdaptingMatcher. This class requires the get() method to be implemented, which describes how to translate the input object (Person), into the output object (name -> String, age -> Integer). Alternatively, you can use a factory method to create a function replaying matcher (as done below for getName()). In this example we have grouped these methods onto a single utility class:
 
 ```java
 package org.hamsandwich.example.wiki;
@@ -159,7 +160,7 @@ public class PersonMatchers {
 
 Note that the generics definition above involving super definitions Matcher<Integer> is required at the moment because of an issue with the version (1.3RC1) of Hamcrest that ships with HamSandwich. This should be fixed soon in v1.3 as soon as it goes gold. In addition, the generics used above can be omitted from the signatures of these methods if required or desired. However, doing so will generate compiler warnings in your IDE.
 
-3. You can now rewrite the test in order to use the above matchers:
+* You can now rewrite the test in order to use the above matchers:
 
 ```java
 package org.hamsandwich.example.wiki;
