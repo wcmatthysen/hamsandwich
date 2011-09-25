@@ -42,6 +42,13 @@
         </dependency>
     </dependencies>
 
+    <distributionManagement>
+        <repository>
+            <id>gh-pages</id>
+            <url>file:///${basedir}/../../hamsandwich-pages/repository/</url>
+        </repository>
+    </distributionManagement>
+
     <repositories>
         <repository>
             <id>hamcrest13</id>

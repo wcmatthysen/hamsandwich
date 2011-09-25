@@ -9,11 +9,32 @@ Installation
 or:
 
 2. Check out the source code via git: `git clone git@github.com:wcmatthysen/hamsandwich.git` and build it manually. Prerequisites:
-* Java 1.6
-* Ant (we use v1.8) or Maven 2/3.
-* JUnit no dependencies version: junit-dep-<version>.jar - (we use v4.8.1)
-* Simply type `ant` or `ant build` at the command line in the "core" folder to build with Ant.
-* Alternatively, (if you have Maven installed) type `mvn package` to build, and / or `mvn install` to install in your local repository.
+    * Java 1.6
+    * Ant (we use v1.8) or Maven 2/3.
+    * JUnit no dependencies version: junit-dep-*version*.jar - (we use v4.8.1)
+    * Simply type `ant` or `ant build` at the command line in the "core" folder to build with Ant.
+    * Alternatively, (if you have Maven installed) type `mvn package` to build, and / or `mvn install` to install in your local repository.
+
+Maven
+-----
+To use hamsandwich with Maven 2/3, you must add the following repository to your project's `pom.xml` file:
+```xml
+<repository>
+  <id>hamsandwich-repo</id>
+  <name>hamsandwich repository on GitHub</name>
+  <url>http://wcmatthysen.github.com/hamsandwich/repository/</url>
+</repository>
+```
+
+Then, you can add the following dependency:
+
+```xml
+<dependency>
+  <groupId>org.hamsandwich</groupId>
+  <artifactId>hamsandwich</artifactId>
+  <version>1.2</version>
+</dependency>
+```
 
 Getting Started
 ===============
@@ -219,3 +240,33 @@ The library will also hugely benefit from the introduction of Closures in Java7 
 Have a play. Let us know what you think.
 
 :)
+
+License
+=======
+BSD License
+
+Copyright (c) 2000-2010, Ham Sandwich project owners
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+Redistributions of source code must retain the above copyright notice, this list of
+conditions and the following disclaimer. Redistributions in binary form must reproduce
+the above copyright notice, this list of conditions and the following disclaimer in
+the documentation and/or other materials provided with the distribution.
+
+Neither the name of Hamcrest nor the names of its contributors may be used to endorse
+or promote products derived from this software without specific prior written
+permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
+EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT
+SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
+WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH
+DAMAGE.
