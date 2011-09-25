@@ -20,10 +20,10 @@
         <zip destfile="build/${artifact}.zip" update="true">
             <zipfileset dir="lib" prefix="lib"/>
             <zipfileset file="build/jars/${artifact}.jar"/>
-            <zipfileset dir="src/main" prefix="main"/>
+            <zipfileset dir="src/main/java" prefix="main"/>
             <zipfileset dir="build/doc" prefix="doc"/>
             <zipfileset dir="src/examples" prefix="examples"/>
-            <zipfileset dir="src/test" prefix="test"/>
+            <zipfileset dir="src/test/java" prefix="test"/>
             <zipfileset file="readme.txt"/>
             <zipfileset file="license.txt"/>
         </zip>
@@ -54,9 +54,9 @@
                 <path refid="@{classpathref}"/>
                 <pathelement location="build/jars/${artifact}.jar"/>
             </path>
-            <compile-jar srcdir="src/main" jarfile="${artifact}.jar" classpathref="@{classpathref}"/>
+            <compile-jar srcdir="src/main/java" jarfile="${artifact}.jar" classpathref="@{classpathref}"/>
             <compile-jar srcdir="src/examples" jarfile="${artifact}.jar" classpathref="@{classpathref}"/>
-            <compile-jar srcdir="src/test" jarfile="${ant.project.name}-test-${version}.jar"
+            <compile-jar srcdir="src/test/java" jarfile="${ant.project.name}-test-${version}.jar"
                          classpathref="test-classpath"/>
         </sequential>
     </macrodef>
@@ -82,7 +82,7 @@
                 <formatter type="xml"/>
 
                 <batchtest todir="${test.output.dir}">
-                    <fileset dir="src/test">
+                    <fileset dir="src/test/java">
                         <include name="**/*Test.java"/>
                         <exclude name="**/Abstract*Test.java"/>
                     </fileset>
@@ -122,7 +122,7 @@
                 use="true"
                 windowtitle="Ham Sandwich"
                 classpathref="test-classpath">
-            <packageset dir="src/main" defaultexcludes="yes">
+            <packageset dir="src/main/java" defaultexcludes="yes">
                 <include name="**"/>
             </packageset>
         </javadoc>
